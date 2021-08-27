@@ -1,0 +1,34 @@
+.main_container{
+    width: 100%;
+    padding: 1.5rem 0; 
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    margin-left: 1rem;
+}
+.logo_title{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.bookshelf_logo {
+    height: 60px;
+    width: 60px;
+}
+
+.footer{
+    font-size: 0.6rem;
+}
+.madeby{
+    font-size: 0.7rem;
+}
+
+.shelf {
+    background-color: burlywood;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
