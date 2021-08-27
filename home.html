@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bookshelf</title>
+</head>
+<body>
+ <section class='main_container'> 
+    <header> 
+    <div class='logo'>
+            <img class='bookshelf_logo' src='img/bookshelf.svg'>
+        <h1 class='logo_title'>Your Personal Bookshelf</h1>
+    </div>
+    </header>
+
+<div class='status_bar'> 
+    <label for='order_by'>
+        Order by:
+        <select id='order_by'>
+            <option value='recently_added' selected=''>Recently Added</option>
+            <option value='page_length' selected=''>Page Length</option>
+        </select>
+        <select id='order'>
+            <option value='ascending'>Ascending</option>
+            <option value='decending'>Decending</option>
+        </select>
+    </label>
+</div>
+<div class='legend'>
+    <div class='read_bg'><h4>Read</h4></div>
+    <div class='not_read_bg'><h4>Not Read</h4></div>
+</div>
+
+<div class='shelf'></div>
+
+    <footer class='footer'>
+        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div class='madeby'>Website created by <a href='https://github.com/J-Newell0' title='Madeby'>JNewell0</a> in accordance with The Odin Project</div>
+    </footer>
+    
+ </section>
+</body>
+<script src="library.js"></script>
+</html>
