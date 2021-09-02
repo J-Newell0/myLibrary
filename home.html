@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <title>Bookshelf</title>
 </head>
+
 <body>
- <section class='main_container'> 
-    <header> 
+     <header> 
     <div class='logo'>
             <img class='bookshelf_logo' src='img/bookshelf.svg'>
         <h1 class='logo_title'>Your Personal Bookshelf</h1>
     </div>
     </header>
 
+
 <div class='status_bar'> 
-    <label for='order_by'>
+    <!-- <label for='order_by'>
         Order by:
         <select id='order_by'>
             <option value='recently_added' selected=''>Recently Added</option>
@@ -26,22 +27,60 @@
         <select id='order'>
             <option value='ascending'>Ascending</option>
             <option value='decending'>Decending</option>
-        </select>
+        </select> -->
     </label>
-</div>
-<div class='legend'>
-    <div class='read_bg'><h4>Read</h4></div>
-    <div class='not_read_bg'><h4>Not Read</h4></div>
-</div>
 
-<div class='shelf'></div>
+</div>
+<button data-modal-target='#modal' class='addBookBtn'>Add A Book!</button>
+    <div class='shelf'>"shelf"</div>
+
+</div>
 
     <footer class='footer'>
-        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div class='cite'>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         <div class='madeby'>Website created by <a href='https://github.com/J-Newell0' title='Madeby'>JNewell0</a> in accordance with The Odin Project</div>
     </footer>
-    
- </section>
+
+    <div id='modal' class='modal'>
+        
+        <div class='modal-header'>
+            <h3 class='title-big'>Add New Books!</h3>
+            <button data-modal-close class='close-modal-btn'>&times;</button>
+       </div>
+       <div class='modal-body'>
+       <form class='formAddBooks' id='addBookForm'>
+           <input
+               class='input'
+               type='text'
+               id='title'
+               placeholder="Title"
+               required
+               /> 
+               <p class='errorMessage' id='errorMsg'></p>
+           <input 
+               class='input'
+               type='text'
+               id='author'
+               placeholder='Author'
+               required
+               />
+           <input 
+               class='input'
+               type='number'
+               id='pages'
+               placeholder='# of Pages'
+               required
+               />
+               <input type='checkbox' class='isRead'>Have you completed this book?</input>
+               <button class='btn' type='submit'>Submit</button>
+               
+       </form>
+       </div>
+</div>
+
+<div class='' id='overlay'></div>
+
+
 </body>
 <script src="library.js"></script>
 </html>
