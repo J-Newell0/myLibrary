@@ -1,9 +1,6 @@
-.main_container{
-    width: 100%;
-    padding: 1.5rem 0; 
-    text-align: center;      
-}
 
+
+/*  Logos */
 .logo {
     display: flex;
     margin-left: 1rem;
@@ -18,13 +15,23 @@
     width: 60px;
 }
 
+
+/* Shelfs and main Container */
+.main_container{
+    width: 100%;
+    padding: 1.5rem 0; 
+    text-align: center;      
+}
+
 .shelf {    
-    background-color: rgb(215, 135, 222);
+    /* background-color: rgb(190, 190, 190); */
     display: grid;
     position: relative;
-    grid-template-columns: repeat(2,1fr);
-    margin-top: 40px;
+    grid-template-columns: repeat(3,30%);
+    margin-top: 10px;
     grid-gap: 40px;
+    padding: 10%;
+  
 }
 
 .status_bar {
@@ -37,13 +44,33 @@
     margin: 8px;
 }
 
+/* Buttons */
+
+.addBookBtn {
+    display: flex;
+    font-size: 1.5rem;
+    margin: auto;
+    border-radius: 10px;
+    width: 160px;
+    height: 40px;
+}
+
+.submit-btn {
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    margin: auto;
+    border-radius: 10px;
+    width: 160px;
+    height: 40px;
+}
 
 
 /* Footer */
 
 .footer{
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     flex-direction: row;
     justify-content: space-between;
@@ -98,7 +125,7 @@
     border: none;
     outline: none;
     background: none;
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -121,4 +148,70 @@
     opacity: 1;
     pointer-events: all;
 
+}
+
+/* Form Styling */
+.formAddBooks{
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+    justify-content: space-between;
+  
+}
+
+.input{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.form-title-big{
+    margin: auto;
+}
+
+.isRead-btn { 
+    justify-content: center;
+    margin: auto;
+    padding: 5px;
+}
+
+/* Cards */
+.book-card{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 15px;
+
+    background-color: rgba(145, 111, 60, 0.6)
+}
+
+
+/* Visual changes */
+
+.green-btn{
+    background-color: rgba(135, 222, 142, 1);
+}
+
+.red-btn {
+    background-color: rgba(182, 28, 28, 0.6);
+}
+
+.read-btn{
+    width: 100px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.del-btn {
+    width: 100px;
+    height: 50px;
+    margin-left: 5px;
+}
+
+.modal-buttons{
+    justify-content: flex-end;
+    display:flex;
+    width: 100px;
+    height: 50px;
 }
