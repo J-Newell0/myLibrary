@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Bookshelf</title>
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico"/>
 </head>
 
 <body>
@@ -31,32 +32,33 @@
     </label>
 
 </div>
-<button data-modal-target='#modal' class='addBookBtn'>Add A Book!</button>
-    <div class='shelf'>"shelf"</div>
+<button data-modal-target='#modal' class='addBookBtn green-btn'>Add A Book!</button>
 
+<div class='shelf-container'>   
+    <div id='shelf' class='shelf'></div>
 </div>
 
-    <footer class='footer'>
-        <div class='cite'>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        <div class='madeby'>Website created by <a href='https://github.com/J-Newell0' title='Madeby'>JNewell0</a> in accordance with The Odin Project</div>
-    </footer>
 
-    <div id='modal' class='modal'>
+<footer class='footer'>
+    <div class='cite'>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div class='madeby'>Website created by <a href='https://github.com/J-Newell0' title='Madeby'>JNewell0</a> in accordance with The Odin Project</div>
+</footer>
+
+<div id='modal' class='modal'>
         
-        <div class='modal-header'>
-            <h3 class='title-big'>Add New Books!</h3>
+    <div class='modal-header'>
+        <h3 class='form-title-big'>Add New Books!</h3>
             <button data-modal-close class='close-modal-btn'>&times;</button>
-       </div>
-       <div class='modal-body'>
-       <form class='formAddBooks' id='addBookForm'>
+    </div>
+        <div class='modal-body'>
+        <form class='formAddBooks' id='formAddBooks'>
            <input
                class='input'
                type='text'
                id='title'
                placeholder="Title"
                required
-               /> 
-               <p class='errorMessage' id='errorMsg'></p>
+               />            
            <input 
                class='input'
                type='text'
@@ -71,8 +73,10 @@
                placeholder='# of Pages'
                required
                />
-               <input type='checkbox' class='isRead'>Have you completed this book?</input>
-               <button class='btn' type='submit'>Submit</button>
+            <div class='isRead-btn'>
+               <input type='checkbox' id= 'isRead' class='isRead'>Have you completed this book?</input>
+            </div>
+               <button id="submit-btn" class='btn green-btn submit-btn' type='submit'>Submit</button>
                
        </form>
        </div>
