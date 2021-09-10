@@ -16,11 +16,22 @@ class Bookshelf {
 
     addBook(newBook) {
         this.books.push(newBook);
+        
+    }
+
+	getBook(title) {
+        return title = this.books.find((book) => book.title === title);
+      
+	}
+
+    removeBook(title) {
+        this.books = this.books.filter((book) => book.title !== title)
     }
 }
 
+
+
 const shelf = new Bookshelf()
-// var info = '';
 
 
 // Naming DOM elements
@@ -55,11 +66,9 @@ overlay.addEventListener('click', () => {
 })
 
 function openModal(modal) {
-    // formAddBooks.reset()
-    if (modal == null) return
+      if (modal == null) return
     modal.classList.add('active');
-    overlay.classList.add('active');
-    console.log('openModal');
+    overlay.classList.add('active');     
 }
 
 function closeModal(modal) {
@@ -71,6 +80,7 @@ function closeModal(modal) {
 }
 
 // 
+// 
 
 const getFormInput = () => {
     const title = document.getElementById('title').value;
@@ -81,26 +91,44 @@ const getFormInput = () => {
     return new Book(title, author, pages, isRead)
 }
 
+//
+
 const addBook = (e) => {
     e.preventDefault();
     const newBook = getFormInput();
     shelf.addBook(newBook);
     makeCard(newBook);
-    // addBookCard();
+   
     closeModal(modal);
-    console.log() 
+   }
+
+const removeBook = (e) => {
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML;
+    shelf.removeBook(title);
+    updateShelfGrid();
+}
+
+const toggleRead = (e) => {
+    const title = e.target.parentNode.parentNode.firstChild.innerHTML;
+    const book = shelf.getBook(title);
+       
+	book.haveRead = !(book.haveRead);
+    updateShelfGrid();
+    console.log('Toggle Read')
+}
+
+const updateShelfGrid = () => {
+    resetShelfGrid()
+    for (let book of shelf.books) {
+        makeCard(book);
+    }
+}
+
+const resetShelfGrid = () => {
+    shelfGrid.innerHTML = ' '
 }
 
 formSubmit.addEventListener('click', addBook)
-
-
-//          REMOVED BECAUSE USING A FOR LOOP WILL CREATE DUPLICATES
-// const addBookCard = () => {
-//     for (let book of shelf.books) {
-//         console.log('addBookCard');
-//         makeCard(book);
-//     }
-// }
 
 // Creation of Book Cards
 const makeCard = (book) => {
@@ -113,12 +141,18 @@ const makeCard = (book) => {
     const readBtn = document.createElement('button')
 
     bookCard.classList.add('book-card')
-    buttons.classList.add('modal-button')
+    buttons.classList.add('card-buttons')
     readBtn.classList.add('read-btn', 'btn')
     removeBookBtn.classList.add('del-btn', 'btn')
 
-    // readBtn.onclick = toggleRead
-    // removeBookBtn.onclick = removeBook
+	if (book.haveRead === true) {
+		bookCard.classList.add('read');
+	} else {
+		bookCard.classList.add('not-read');
+	}
+
+    readBtn.onclick = toggleRead
+    removeBookBtn.onclick = removeBook
 
     title.textContent = book.title
     author.textContent = book.author
@@ -129,8 +163,8 @@ const makeCard = (book) => {
     bookCard.appendChild(title)
     bookCard.appendChild(author)
     bookCard.appendChild(pages)
-    buttons.appendChild(readBtn)
-    buttons.appendChild(removeBookBtn)
+    buttons.appendChild(readBtn)  
+    buttons.appendChild(removeBookBtn)  
     bookCard.appendChild(buttons)
     shelfGrid.appendChild(bookCard)
 }
